@@ -1,0 +1,46 @@
+﻿<form id="ProductformValidate">
+     <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for=""> اسم المنتج </label>
+                    <input class="form-control" placeholder="اسم المنتج" required="required" name="Name" type="text" ng-model="Enttiy.name">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for=""> الوصف </label>
+                    <input class="form-control" placeholder="الوصف" type="text" ng-model="Enttiy.description">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for=""> الكود </label>
+                    <input class="form-control" placeholder="الكود" disabled required="required" name="Code" type="text" ng-model="Enttiy.code">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for=""> عدد القطع </label>
+                    <input class="form-control" placeholder="عدد القطع" disabled name="NumberOfPieces" required="required" type="number" ng-model="Enttiy.quantity">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">سعر البيع</label>
+                    <input class="form-control" placeholder="سعر البيع" required="required" name="SalePrice" type="number" ng-model="Enttiy.productPricings.salePrice">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">سعر الجمله</label>
+                    <input class="form-control" placeholder="سعر الجمله" required="required" name="WholesalePrice" type="number" ng-model="Enttiy.productPricings.wholesalePrice">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">مصدر المنتج</label>
+                    <input class="form-control"disabled required="required" name="WholesalePrice" type="number" ng-model="Enttiy.menuFacturer">
+                </div>
+            </div>
+        </div>
+</form>

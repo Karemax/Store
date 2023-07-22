@@ -1,0 +1,17 @@
+﻿<div class="inline-profile-tiles">
+    <div class="row">
+        <div class="col-4 col-sm-3 col-xxl-2" ng-repeat="cat in All | filter: query">
+            <div class="profile-tile profile-tile-inlined">
+                <a class="profile-tile-box" href="" ng-click="Setbar(Bar.itemlink,cat.id)">
+                    <div class="pt-avatar-w">
+                        <img alt="" src="img/avatar1.jpg">
+                    </div>
+                    <div class="pt-user-name">
+                        <h6 class="form-header">{{cat.name}}</h6>
+                        <p><small>عدد القطع المعروضة : {{cat.quantity}}</small></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

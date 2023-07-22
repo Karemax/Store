@@ -1,0 +1,19 @@
+﻿<div class="inline-profile-tiles">
+    <div class="row">
+        <div class="col-4 col-sm-3 col-xxl-2" ng-repeat="item in Inventory | filter: query">
+            <div class="profile-tile profile-tile-inlined">
+                <a class="profile-tile-box" href="" ng-click="Setbar(Bar.itemlink,item.id)">
+                    <div class="pt-avatar-w">
+                        <img alt="" src="img/avatar1.jpg">
+                    </div>
+                    <div class="pt-user-name">
+                        <h6 class="form-header">{{item.productType +' '+ item.title +' '+ item.gender}}</h6>
+                        <p><small>عدد القطع المعروضة : {{item.showing}}</small></p>
+                        <p><small>عدد القطع المخزنه : {{item.inStock}}</small></p>
+                        <p><small>العدد الكلي : {{item.quantity}}</small></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

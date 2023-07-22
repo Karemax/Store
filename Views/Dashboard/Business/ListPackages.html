@@ -1,0 +1,109 @@
+﻿
+<div class="content-i" ng-controller="BusinessPackage">
+    <script>
+
+        $("#PackageformValidate").validate({
+            rules: {
+                Name: {
+                    required: true,
+                    minlength: 3
+                },
+                Cost: {
+                    required: true,
+                },
+            },
+            //For custom messages
+            messages: {
+                Name: {
+                    required: "أدخل أسم الباقه",
+                    minlength: "أدخل 3 حروف علي الأقل"
+                },
+                Cost: {
+                    required: "أدخل تكلفه الباقه",
+                },
+            },
+            errorElement: 'div',
+            errorPlacement: function (error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            invalidHandler: function (e, validator) {
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    $('.error-alert-bar').show();
+                }
+            },
+            submitHandler: function () {
+                $('.error-alert-bar').hide();
+                $('.success-alert-bar').show().delay(5000).fadeOut();
+            }
+        });
+
+
+// -----------------------------------------------------------------------
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+    </script>
+    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="exampleModal1" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">أنشاء باقه جديد</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> ×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form id="PackageformValidate">
+                        <div class="form-group">
+                            <label for="" class="float-right">أسم الباقه</label>
+                            <input class="form-control" placeholder="أسم الباقه" name="Name" ng-model="Enttiy.Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="float-right">تكلفه الباقه</label>
+                            <input class="form-control" type="number" placeholder="تكلفه الباقه" name="Cost" ng-model="Enttiy.Cost">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-click="CreateBusinessPackage()">تأكيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="element-wrapper">
+                    <div class="element-actions">
+                        <div data-toggle="modal" data-target="#exampleModal1">
+                            <a class="mr-2 mb-2 btn btn-outline-primary" data-placement="right" data-toggle="tooltip" data-original-title="أضافه باقه جديد" type="button" href=""> <i class="icon-plus"></i></a>
+                        </div>
+                    </div>
+                    <h6 class="element-header"> كل الباقات</h6>
+                    <div class="element-box-tp" style="float:none">
+                        <div class="inline-profile-tiles">
+                            <div class="row">
+                                <div class="col-4 col-sm-3 col-xxl-2" ng-repeat="item in Packages">
+                                    <div class="profile-tile profile-tile-inlined">
+                                        <a class="profile-tile-box" href="">
+                                            <div class="pt-user-name">
+                                                <h6 class="form-header">{{item.name}}</h6>
+                                                <p><small>التكلفه : {{item.cost}}</small></p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,20 @@
+﻿<div class="upload-item-box">
+    <input type='file' id="imageUpload" name="imageUpload" accept=".png, .jpg, .jpeg" data-ak-file-model="tutorial.imageUpload" />
+    <label for="imageUpload" style="background-image: url({{Imgpath}}/{{Enttiy.photo}}); ">
+        <div id="imagePreview" style="background-position: center; "></div>
+        <div class="content">
+            <i class="os-icon os-icon-upload"></i>
+            <span>تحميل <br> صوره المنتج الرأيسيه</span>
+        </div>
+    </label>
+</div>
+<div class="upload-item-box">
+    <input type='file' id="imageUploads" name="imageUploads" multiple accept=".png, .jpg, .jpeg" data-ak-file-model="tutorial.imageUploads" />
+    <label for="imageUploads" id="imageUploadslabel" style="background-image: url({{Imgpath}}/{{imageUploads}});">
+        <div id="imagePreviewsPag" class="row"></div>
+        <div class="content">
+            <i class="os-icon os-icon-upload"></i>
+            <span>تحميل <br> باقي صور المنتج</span>
+        </div>
+    </label>
+</div>

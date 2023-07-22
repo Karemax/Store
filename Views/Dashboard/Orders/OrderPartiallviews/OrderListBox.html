@@ -1,0 +1,57 @@
+﻿<script>
+    $(function ($scope) {
+        $('input[name="from"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            startDate: $scope.From
+        });
+        $('input[name="to"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            startDate: $scope.To
+        });
+    });
+
+</script>
+<div class="row" ng-if="isOwner()">
+    <div class="form-group col-md-6">
+        <div class="label">من</div>
+        <div class="date-input form-control">
+            <input class="single-daterange" type="text" name="from" placeholder="Date of birth" ng-model="From" ng-change="GetAllData(From,To)">
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <div class="label">الي</div>
+        <div class="date-input form-control">
+            <input class="single-daterange" type="text" name="to" placeholder="Date of birth" ng-model="To" ng-change="GetAllData(From,To)">
+        </div>
+    </div>
+</div>
+<div class="table-responsive" ng-hide="Islength">
+    <table class="table table-lightborder">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>التاريخ</th>
+                <th>الكود</th>
+                <th>السعر الكلي</th>
+                <th>التفاصيل</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="ord in All" ng-class="{'bg-danger' : ord.isBack }">
+                <td>{{$index+1}}</td>
+                <td>{{ord.createdAt | date : 'd/M/yyyy h:mm:ss a'}}</td>
+                <td>{{ord.code}}</td>
+                <td>{{ord.bill.totalPrice}}</td>
+                <td>
+                    <button class="btn btn-primary" type="submit" ng-click="GetOrderDetiles(ord)"> عرض الفاتورة </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-desc" ng-show="Islength">
+    لا يوجد فواتير بعد ...
+</div>
+

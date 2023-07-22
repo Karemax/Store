@@ -1,0 +1,167 @@
+﻿<script>
+    $(function ($scope) {
+        $('input[name="from"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            startDate: $scope.From
+        });
+        $('input[name="to"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            startDate: $scope.To
+        });
+    });
+
+</script>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="element-wrapper">
+            <h6 class="element-header">
+                الدرج : {{Total}}
+            </h6>
+            <div class="element-content">
+                <div class="row" ng-if="isOwner()">
+                    <div class="form-group col-md-6">
+                        <div class="label">من</div>
+                        <div class="date-input form-control">
+                            <input class="single-daterange" type="text" name="from" placeholder="Date of birth" ng-model="From" ng-change="GetInputValue()">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="label">الي</div>
+                        <div class="date-input form-control">
+                            <input class="single-daterange" type="text" name="to" placeholder="Date of birth" ng-model="To" ng-change="GetInputValue()">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-xxxl-3" ng-click="GetTodayBills()">
+                        <a class="element-box el-tablo" href="">
+                            <div class="label">مجموع الفواتير البيع</div>
+                            <div class="value">{{All.totalBills}}</div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4 col-xxxl-3" ng-click="GetTodayOutcome()">
+                        <a class="element-box el-tablo" href="">
+                            <div class="label">مجموع المصروفات</div>
+                            <div class="value">{{All.totalOutcome}}</div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4 col-xxxl-3" ng-click="GetDailyinventoryBills()">
+                        <a class="element-box el-tablo" href="">
+                            <div class="label">مجموع فواتير الشراء</div>
+                            <div class="value">{{All.totalinventory}}</div>
+                        </a>
+                    </div>
+                    <div class="d-none d-xxxl-block col-xxxl-3">
+                        <a class="element-box el-tablo" href="">
+                            <div class="label">مجموع المتبقي من فواتير المخزن</div>
+                            <div class="value">{{All.totalRinventory}}</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-hide="Islength">
+    <div class="row" ng-show="BillsCon">
+        <div class="col-sm-12">
+            <div class="element-wrapper">
+                <h6 class="element-header">فواتير البيع</h6>
+                <div class="element-box">
+                    <div class="table-responsive">
+                        <table class="table table-lightborder">
+                            <thead>
+                                <tr>
+                                    <th class="text-right">#</th>
+                                    <th class="text-center">التاريخ</th>
+                                    <th>عدد القطع</th>
+                                    <th>السعر الكلي</th>
+                                    <th>الخصم</th>
+                                    <th>السعر بعد الخصم</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="Sup in TodayBillsTable | filter:query" ng-class="{'bg-danger' : Sup.isBack }">
+                                    <td class="text-right">{{$index+1}}</td>
+                                    <td class="text-center">{{Sup.date | date : 'M/d/yy h:mm:ss a'}}</td>
+                                    <td>{{Sup.numberOfPieces}}</td>
+                                    <td>{{Sup.totalPrice}}</td>
+                                    <td>{{Sup.discount}}</td>
+                                    <td>{{Sup.finalPrice}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="OutcomeCon">
+        <div class="col-sm-12">
+            <div class="element-wrapper">
+                <h6 class="element-header">المصروفات</h6>
+                <div class="element-box">
+                    <div class="table-responsive">
+                        <table class="table table-lightborder">
+                            <thead>
+                                <tr>
+                                    <th class="text-right">#</th>
+                                    <th class="text-center">التاريخ</th>
+                                    <th class="text-center">العنوان</th>
+                                    <th>التكلفه</th>
+                                    <th>النوع</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="ty in outcomesTable | filter:query">
+                                    <td class="text-right">{{$index+1}}</td>
+                                    <td class="text-center">{{Sup.date | date : 'M/d/yy h:mm:ss a'}}</td>
+                                    <td class="text-center">{{ty.titel}}</td>
+                                    <td>{{ty.cost}}</td>
+                                    <td>{{ty.outcomeType}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="inventoryCon">
+        <div class="col-sm-12">
+            <div class="element-wrapper">
+                <h6 class="element-header">فواتير الشراء</h6>
+                <div class="element-box">
+                    <div class="table-responsive">
+                        <table class="table table-lightborder">
+                            <thead>
+                                <tr>
+                                    <th class="text-right">#</th>
+                                    <th class="text-center">التاريخ</th>
+                                    <th class="text-center">المورد</th>
+                                    <th class="text-center">التكلفه</th>
+                                    <th>الباقي</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="Sup in TodayinventoryTable | filter:query">
+                                    <td class="text-right">{{$index+1}}</td>
+                                    <td class="text-center">{{Sup.date | date : 'M/d/yy h:mm:ss a'}}</td>
+                                    <td class="text-center">{{Sup.supplier}}</td>
+                                    <td class="text-center">{{Sup.cost}}</td>
+                                    <td>{{Sup.remaining}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-desc" ng-show="Islength">
+    لا يوجد فواتير بعد ...
+</div>

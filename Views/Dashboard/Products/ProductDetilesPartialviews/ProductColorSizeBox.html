@@ -1,0 +1,35 @@
+﻿<div class="row align-items-center justify-content-center">
+    <div class="col-sm-auto P-Sizes" ng-show="(Enttiy.productColors|filter:{isActive:false}).length > 0">
+        <div class="P-Sizes-Label">أضافه لون</div>
+        <div class="row AddCard" data-target="#onboardingWideFormModalColor" data-toggle="modal">
+            <i class="os-icon os-icon-plus"></i>
+        </div>
+    </div>
+    <div class="col-sm-auto P-Sizes" ng-repeat="color in Enttiy.productColors | filter:{isActive:true}">
+        <div class="P-Sizes-Label" ng-style="{'background-color': color.color}"></div>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-sm-auto P-Sizes AddCard" data-target="#onboardingWideFormModal" data-toggle="modal" ng-click="ActiveColors(color)" ng-show="(color.productColorSizes|filter:{isActive:false}).length > 0">
+                <i class="os-icon os-icon-plus"></i>
+            </div>
+            <div class="col-sm-auto P-Sizes" ng-repeat="Size in color.productColorSizes | filter:{isActive:true}">
+                <div>
+                    <div class="P-Sizes-Label">
+                        {{Size.size}}
+                        <i class="os-icon os-icon-x" ng-click="DisActiveSize(Size,color)"></i>
+                    </div>
+                </div>
+                <div class="row P-Size-q">
+                    <div class="col-4 Icon-Dy" ng-click="minus(Size)">
+                        <i class="os-icon os-icon-ui-23"></i>
+                    </div>
+                    <div class="col-4">
+                        {{Size.quantity}}
+                    </div>
+                    <div class="col-4 Icon-Dy" ng-click="Plus(Size)">
+                        <i class="os-icon os-icon-ui-22"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

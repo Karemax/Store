@@ -1,0 +1,32 @@
+﻿<div class="form-desc" ng-show="!Islength">
+    يجب  <a ng-href="#/CreateEmployee" ng-click="SetActiveSection(Bar.sections[0])"> أضافه  بائعيين </a> أولاً
+</div>
+<div class="element-box-tp-Users" ng-show="Islength">
+    <div class="profile-tile" ng-repeat="item in AllEmployee">
+        <a class="profile-tile-box" ng-click="Setbar(Bar.itemlink,item.id)">
+            <div class="pt-avatar-w">
+                <img alt="" src="img/avatar1.jpg">
+            </div>
+            <div class="pt-user-name">{{item.fName}} {{item.lName}} </div>
+        </a>
+        <div class="profile-tile-meta">
+            <ul>
+                <li>
+                    <strong>{{item.phoneNumber}}</strong>
+                    : رقم الهاتف
+                </li>
+                <li>
+                    النوع :
+                    <strong>{{item.gender}}</strong>
+                </li>
+                <li>
+                    <strong>{{item.dateOfBirth | date:'MM/dd/yyyy'}}</strong>
+                    : تاريخ الميلاد
+                </li>
+            </ul>
+            <!--<div class="pt-btn">
+                    <a class="btn btn-success btn-sm" href="apps_full_chat.html">Send Message</a>
+                </div>-->
+        </div>
+    </div>
+</div>

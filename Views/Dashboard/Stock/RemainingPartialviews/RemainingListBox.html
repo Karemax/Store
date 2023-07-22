@@ -1,0 +1,32 @@
+﻿<div class="table-responsive">
+    <table class="table table-lightborder">
+        <thead>
+            <tr>
+                <th collspan="3">#</th>
+                <th>المورد</th>
+                <th>تكلفه الفاتوره</th>
+                <th>المتبقي</th>
+                <th class="text-center">الدفع</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="bill in Bills">
+                <td>{{$index+1}}</td>
+                <td>{{bill.name}}</td>
+                <td>{{bill.totalPrice}}</td>
+                <td>{{bill.totalPrice - bill.paied}}</td>
+                <td width="40%">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-left">
+                            <button class="btn btn-primary" type="submit" ng-click="CreateRemaining(bill)"> دفع</button>
+
+                        </div>
+                        <div class="col-md-8">
+                            <input class="form-control" max="{{bill.totalPrice - bill.paied}}" placeholder="المبلغ المسدد" required="required" name="Cost" type="number" ng-model="bill.RCost">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

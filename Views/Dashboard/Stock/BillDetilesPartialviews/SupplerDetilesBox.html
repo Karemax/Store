@@ -1,0 +1,66 @@
+﻿<div class="order-box">
+    <div class="order-foot">
+        <div class="mb-4">
+            <h5 class="order-section-heading">ملخص الفاتورة</h5>
+            <div class="order-summary-row">
+                <div class="order-summary-label">
+                    <span>المجموع الفرعي</span>
+                </div>
+                <div class="order-summary-value">{{All.total}}</div>
+            </div>
+            <div class="order-summary-row">
+                <div class="order-summary-label">
+                    <span>الشحن</span>
+                </div>
+                <div class="order-summary-value">{{All.shipping}}</div>
+            </div>
+            <div class="order-summary-row as-total">
+                <div class="order-summary-label">
+                    <span>المجموع</span>
+                </div>
+                <div class="order-summary-value">{{All.total + All.shipping}}</div>
+            </div>
+            <div class="order-summary-row">
+                <div class="order-summary-label">
+                    <span>المدفوع</span>
+                </div>
+                <div class="order-summary-value"> {{All.total + All.shipping - (All.total - All.paied)}}</div>
+            </div>
+            <div class="order-summary-row as-total">
+                <div class="order-summary-label">
+                    <span> المتبقي</span>
+                </div>
+                <div class="order-summary-value">{{All.total - All.paied}}</div>
+            </div>
+
+        </div>
+        <div class="mb-4">
+            <h5>ملاحظاتك</h5>
+            <div class="form-group">
+                <textarea class="form-control m-none" placeholder="أدخل ملاحظاتك هنا ..." ng-model="All.note"></textarea>
+            </div>
+        </div>
+
+    </div>
+    <div class="order-items-table">
+        <div class="ecommerce-customer-info">
+            <!--<div class="ecommerce-customer-main-info">
+                <div class="ecc-avatar" style="background-image: url({{All.supplier.img}})"></div>
+                <div class="ecc-name">{{All.supplier.name}}</div>
+            </div>-->
+            <div class="ecommerce-customer-sub-info">
+                <div class="ecc-sub-info-row">
+                    <div class="sub-info-label">أسم المورد</div>
+                    <div class="sub-info-value">
+                        <div class="sub-info-value">{{All.supplier.name}}</div>
+                    </div>
+                </div>
+                <div class="ecc-sub-info-row">
+                    <div class="sub-info-label">رقم المحمول</div>
+                    <div class="sub-info-value">{{All.supplier.phone}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

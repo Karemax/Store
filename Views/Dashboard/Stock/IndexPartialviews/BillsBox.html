@@ -1,0 +1,38 @@
+﻿<div class="form-group" ng-if="isOwner()" ng-show="Islength">
+    <div class="date-input form-control">
+        <input class="single-daterange" type="text" name="date" placeholder="Date of birth" ng-model="Date" ng-change="GetAllData(Date)">
+    </div>
+</div>
+<div class="table-responsive" ng-show="Islength">
+    <table class="table table-lightborder">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>التاريخ</th>
+                <th>المورد</th>
+                <th>السعر الكلي</th>
+                <th>التفاصيل</th>
+                <th>الفاتوره كامله</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Pac in All">
+                <td>{{$index+1}}</td>
+                <td>{{Pac.createdAt | date : 'M/d/yy h:mm:ss a'}}</td>
+                <td>{{Pac.name}}</td>
+                <td>{{Pac.totalPrice}}</td>
+                <td>
+                    <button data-target="#onboardingTextModal" data-toggle="modal" class="btn btn-primary" type="submit" ng-click="GetAllItemPack(Pac)"> عرض الفاتورة </button>
+                </td>
+                <td>
+                    <a class="btn btn-success" type="button" href="" ng-click="Setbar(Bar.itemlink,Pac.id)"> <i class="os-icon os-icon-alert-octagon"></i> </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-desc" ng-show="!Islength">
+    يجب أولا 
+    <span class="Click-link" ng-click="Setbar(Bar.sublinks[0])"> أضافه فواتير الشراء </span> 
+    حتي تتمكن من تشغيل جدول فواتير الشراء
+</div>

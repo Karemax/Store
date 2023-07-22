@@ -1,0 +1,14 @@
+﻿
+<!--<div class="SectionNavigator row">
+    <div ng-repeat="s in Bar.sections" ng-show="s.isActive" class="SectionNavigator-item col-lg-auto" ng-click="OpenSection(s)">
+    </div>
+</div>-->
+<div class="os-tabs-w mx-4">
+    <div class="os-tabs-controls">
+        <ul class="nav nav-pills smaller d-none d-lg-flex">
+            <li class="nav-item" ng-repeat="s in Bar.sections"  ng-click="OpenSection(s)">
+                <a class="nav-link" ng-class="{'active': s.isActive}"> {{s.titel}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+﻿<div class="invoice-w">
+    <div class="infos">
+        <div class="info-1">
+            <div class="invoice-logo-w">
+                <img alt="" src="images/{{Store.logo}}">
+            </div>
+            <div class="company-name">{{BusinessName}}</div>
+            <div class="company-address">
+                {{Store.address}}
+            </div>
+            <div class="company-extra">{{Store.phoneNumber}}</div>
+        </div>
+    </div>
+    <div class="invoice-heading">
+        <h3>الفاتوره</h3>
+        <div class="invoice-date">{{date | date:'yyyy-MM-dd'}}</div>
+    </div>
+    <div class="invoice-body">
+        <div class="invoice-table w-100">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td colspan="2"> نوع الفاتوره</td>
+                        <td colspan="2">
+                            <select class="form-control" ng-model="BillType" ng-change="BillTypeToggel(BillType)">
+                                <option value="كاش" selected="selected">كاش</option>
+                                <option value="أجل">أجل</option>
+                            </select>
+                        </td>
+                        <td colspan="2" ng-show="BillType == 'أجل'">
+                            <input class="form-control" placeholder="أسم العميل الجديد" required="required" type="text" ng-model="ClientPag.name" ng-show="newReminingOrder">
+                            <select class="form-control" ng-hide="newReminingOrder" ng-model="ClientPag.id" ng-change="ChangeClientPag(ClientPag)">
+                                <option ng-repeat="c in ReminingClients" ng-value="{{c.id}}">{{c.name}}</option>
+                            </select>
+                        </td>
+                        <td colspan="2" ng-show="BillType == 'أجل'">
+                            <input class="form-control" required="required" type="checkbox" ng-click="ReminingOrderToggel()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-right">الأسم</th>
+                        <th>العدد</th>
+                        <th>المقاس</th>
+                        <th>اللون</th>
+                        <th>السعر</th>
+                        <th>الخصم</th>
+                        <th>السعر بعد الخصم</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="it in cart">
+                        <td class="text-right">
+                            <i class="os-icon os-icon-trash" ng-click="DeleteMEFormCart(it)"></i> - {{it.Name}}
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="Icon-Dy" ng-click="minusCart(it)">
+                                    <i class="os-icon os-icon-ui-23"></i>
+                                </div>
+                                <div>
+                                    {{it.NumberOfPieces}}
+                                </div>
+                                <div class="Icon-Dy" ng-click="PlusCart(it)">
+                                    <i class="os-icon os-icon-ui-22"></i>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{it.Size}}</td>
+                        <td>
+                            <div class="Basics">
+                                <div class="B-selector color-selector selected" ng-style="{'background-color': it.Color}"></div>
+                            </div>
+                        </td>
+                        <td>{{it.Price}}</td>
+                        <td>
+                            <input class="form-control" placeholder="الخصم" required="required" type="number" min="0" value="{{it.Discount}}" ng-model="it.Discount" ng-change="ChangeitemDiscount(it)">
+                        </td>
+                        <td>{{it.Price - it.Discount}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5"> أجمالي الفاتوره</td>
+                        <td colspan="2">{{TotalPrice}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">الخصم</td>
+                        <td colspan="2">
+                            <input class="form-control" placeholder="الخصم" required="required" type="number" min="0" disabled value="{{DiscountPrice}}" ng-model="DiscountPrice">
+                        </td>
+                    </tr>
+                    <tr ng-show="!newReminingOrder && BillType == 'أجل'">
+                        <td colspan="5">الرصيد السابق</td>
+                        <td colspan="2">{{ClientPag.balance}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">المدفوع</td>
+                        <td colspan="2" ng-show="BillType == 'كاش'">{{PaidPrice}}</td>
+                        <td colspan="2" ng-show="BillType == 'أجل'">
+                            <input class="form-control" placeholder="المدفوع" required="required" type="number" min="0" max="{{TotalPrice - DiscountPrice}}" ng-value="PaidPrice">
+                        </td>
+                    </tr>
+                    <tr ng-show="!newReminingOrder && BillType == 'أجل'">
+                        <td colspan="5">الرصيد الحالي</td>
+                        <td colspan="2">{{TotalPrice - DiscountPrice + ClientPag.balance}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="terms">
+                <div class="terms-header">
+                    <div class="row">
+                        <button class="btn btn-primary" type="submit" ng-click="CreateCheckout()"> تأكيد</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="invoice-footer">
+        <div class="invoice-logo">
+            <img alt="" src="img/logo.png">
+            <span>StoreMe Inc</span>
+        </div>
+        <div class="invoice-info">
+            <span>hello@paper.inc</span>
+            <span>858.757.4455</span>
+        </div>
+    </div>
+</div>

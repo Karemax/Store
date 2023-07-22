@@ -1,0 +1,118 @@
+﻿<div class="user-profile">
+    <div class="up-contents">
+        <h5 class="element-header">
+            {{InventoryItem.productType + " " + InventoryItem.title + " " + InventoryItem.gender + " من " + InventoryItem.menuFacturerName}}
+            <span>
+                {{InventoryItem.buyPrice + " : "}}سعر القطعه 
+            </span>
+        </h5>
+        <div class="row m-b">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-sm-6 b-r b-b">
+                        <div class="el-tablo centered padded">
+                            <div class="value">{{InventoryItem.quantity}}</div>
+                            <div class="label">كل القطع</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 b-b b-r">
+                        <div class="el-tablo centered padded">
+                            <div class="value">{{InventoryItem.inStock}}</div>
+                            <div class="label">قطع في المخزون</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 b-r">
+                        <div class="el-tablo centered padded">
+                            <div class="value">{{InventoryItem.showing}}</div>
+                            <div class="label">قطع في المتجر</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 b-r">
+                        <div class="el-tablo centered padded">
+                            <div class="value">{{InventoryItem.sold}}</div>
+                            <div class="label">المنتجات المباعة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-sm-6 b-r b-b">
+                        <div class="el-tablo centered padded">
+                            <div class="value">{{InventoryItem.quantityFees}}</div>
+                            <div class="label">جميع الرسوم</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 b-b b-r">
+                        <div class="el-tablo centered padded">
+                            <div class="value">{{InventoryItem.inStockFees}}</div>
+                            <div class="label">الرسوم في المخزون</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 b-r">
+                        <div class="el-tablo centered padded">
+                            <div class="value">{{InventoryItem.showingFees}}</div>
+                            <div class="label">الرسوم في المتجر</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 b-r">
+                        <div class="el-tablo centered padded">
+                            <div class="value">{{InventoryItem.soldFees}}</div>
+                            <div class="label">الرسوم المباعة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="os-tabs-w">
+            <div class="os-tabs-controls">
+                <ul class="nav nav-tabs bigger">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tab_overview">نشاط المنتج</a>
+                    </li>
+                </ul>
+                <ul class="nav nav-pills smaller d-none d-md-flex">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="">أخر أسبوع</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="">أخر شهر</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="">أخر 6 شهور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="">أخر سنه</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_overview">
+                    <div class="timed-activities padded">
+                        <div class="timed-activity" ng-repeat="activity in InventoryItem.activity">
+                            <div class="ta-date">
+                                <span>{{activity.day | date : 'MMM d, y'}}</span>
+                            </div>
+                            <div class="ta-record-w">
+                                <div class="ta-record" ng-repeat="activityDetiles in activity.activityDetiles">
+                                    <div class="ta-timestamp">
+                                        <strong>{{activityDetiles.time + ' ' + activityDetiles.timePeriod}}</strong>
+                                    </div>
+                                    <div class="ta-activity">
+                                        تم شراء {{activityDetiles.quantity}} من
+                                        <a href="">{{activityDetiles.supllierName}}</a> بسعر {{activityDetiles.totalPrice}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="tab_conversion"></div>
+            </div>
+        </div>
+    </div>
+</div>

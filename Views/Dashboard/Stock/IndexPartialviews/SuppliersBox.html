@@ -1,0 +1,24 @@
+﻿<div class="table-responsive" ng-show="Islength">
+    <table class="table table-lightborder">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>أسم المورد</th>
+                <th>رقم الهاتف</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cat in AllSuppliers">
+                <td>{{$index+1}}</td>
+                <td>{{cat.name}}</td>
+                <td>{{cat.phone}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr />
+
+<div class="form-desc" ng-show="!Islength">
+    يجب أولا
+    أضافه موردين من أعلي حتي تتمكن من تشغيل جدول الموردين و أضاقه فواتير شراء
+</div>

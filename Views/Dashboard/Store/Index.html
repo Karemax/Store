@@ -1,0 +1,114 @@
+﻿<div class="content-i">
+    <script>
+
+// -----------------------------------------------------------------------
+        $("#imageUpload").change(function () {
+            !function (e) {
+                $("#imagePreview.content").hide();
+                if (e.files && e.files[0]) {
+                    var t = new FileReader; t.onload = function (e) {
+                        $("#imagePreview").css("background-image", "url(" + e.target.result + ")"), $("#imagePreview").hide(), $("#imagePreview").fadeIn(650);
+                    }, t.readAsDataURL(e.files[0])
+                }
+            }(this)
+        });
+
+    </script>
+
+    <div class="content-box">
+        <div class="element-wrapper">
+            <div class="user-profile">
+                <div class="up-head-w" style="/* background-image:url(img/profile_bg1.jpg); */background-color: #00a2ff;">
+                    <div class="up-social">
+                        <a href=""><i class="os-icon os-icon-twitter"></i></a>
+                        <a href=""><i class="os-icon os-icon-facebook"></i></a>
+                    </div>
+                    <div class="up-main-info row">
+                        <div class="col-lg-3">
+                            <div class="user-avatar-w">
+                                <div class="user-avatar">
+                                    <div class="upload-item-box">
+                                        <input type='file' id="imageUpload" name="imageUpload" accept=".png, .jpg, .jpeg" data-ak-file-model="logo" />
+                                        <label for="imageUpload" style="background-image: url(/images/{{Business.logo}}); ">
+                                            <div id="imagePreview" style="background-position: center; "></div>
+                                            <div class="content">
+                                                <i class="os-icon os-icon-upload"></i>
+                                                <span>تحميل <br> صوره شعار المحل</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h1 class="up-header">{{Business.name}}</h1>
+                            <h5 class="up-sub-header">{{Business.type}}</h5>
+                        </div>
+                    </div>
+                    <svg class="decor" width="1000px" height="520px" viewBox="0 0 842 219" preserveAspectRatio="xMaxYMax meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g transform="translate(-381.000000, -362.000000)" fill="#FFFFFF"><path class="decor-path" d="M1223,362 L1223,581 L381,581 C868.912802,575.666667 1149.57947,502.666667 1223,362 Z"></path></g>
+                    </svg>
+                </div>
+                <div class="up-controls">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="value-pair">
+                                <div class="label">حاله المحل:</div>
+                                <div class="value badge badge-pill badge-success" ng-show="Business.isActive">متاح </div>
+                                <div class="value badge badge-pill badge-success" ng-show="!Business.isActive">مغلق </div>
+                            </div>
+                            <div class="value-pair">
+                                <div class="label">عضو منذ:</div>
+                                <div class="value">{{Business.createdAt | date : 'M/d/yyyy'}}</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-left">
+                            <a class="btn btn-primary btn-sm" href="" ng-click="UpdateStore()"><i class="os-icon os-icon-save"></i><span>حفظ التغيرات</span></a>
+                            <a class="btn btn-secondary btn-sm" href="" ng-click="RestoreStore()"><i class="os-icon os-icon-database-remove"></i><span>أعاده تأهيل  البيانات</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="up-contents">
+                    <form id="StoreformValidate">
+                        <h5 class="element-header">المعلومات الأساسيه </h5>
+                        <div class="row m-b">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for=""> أسم المحل</label>
+                                    <input class="form-control" type="text" required="required" data-error=".errorTxt1" name="StoreName" placeholder="أسم المحل" ng-model="Business.name">
+                                    <div class="errorTxt1"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for=""> رقم الهاتف</label>
+                                    <input class="form-control" required="required" name="PhoneNumber" data-error=".errorTxt2" placeholder="رقم الهاتف" ng-model="Business.phoneNumber">
+                                    <div class="errorTxt2"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for=""> العنوان</label>
+                                    <input class="form-control" required="required" name="Address" data-error=".errorTxt3" placeholder="العنوان" ng-model="Business.address" type="text">
+                                    <div class="errorTxt3"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for=""> وقت بدايه العمل</label>
+                                    <input class="form-control" required="required" name="WorkStartingDate" value="{{Business.startingHour | date : 'HH:mm'}}" type="time">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for=""> وقت نهايه العمل</label>
+                                    <input class="form-control" required="required" name="WorkEndingDate" value="{{Business.endingHour | date : 'HH:mm'}}" type="time">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

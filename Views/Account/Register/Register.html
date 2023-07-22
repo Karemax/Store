@@ -1,0 +1,57 @@
+﻿<div class="logo-w"><a href="index.html"><img alt="" src="img/FullLogo.png"></a></div>
+<h4 class="auth-header">التسجيل</h4>
+<form ng-controller="Register" method="post" ng-submit="Send()">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>الأسم الأول</label>
+                <input class="form-control" placeholder="أدخل الأسم الأول" ng-model="model.fristName" />
+                <div class="pre-icon os-icon os-icon-user-male-circle2"></div>
+                <hr />
+            </div>
+            <div class="form-group">
+                <label>أسم المستخدم</label>
+                <input class="form-control" placeholder="أدخل أسم المستخدم" ng-model="model.userName" />
+                <div class="pre-icon os-icon os-icon-user-male-circle"></div>
+                <hr />
+            </div>
+            <div class="form-group">
+                <label>الرقم السري</label>
+                <input class="form-control" placeholder="أدخل الرقم السري" ng-model="model.password" />
+                <div class="pre-icon os-icon os-icon-fingerprint"></div>
+                <hr />
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>الأسم الأخير</label>
+                <input class="form-control" placeholder="أدخل الأسم الأخير" ng-model="model.lastName" />
+                <div class="pre-icon os-icon os-icon-user-male-circle2"></div>
+                <hr />
+            </div>
+            <div class="form-group">
+                <label>البريد الألكنروني</label>
+                <input class="form-control" placeholder="أدخل البريد الألكنروني" ng-model="model.email" />
+                <div class="pre-icon os-icon os-icon-email-2-at2"></div>
+                <hr />
+            </div>
+            <div class="form-group">
+                <label>تأكيد الرقم السري</label>
+                <input class="form-control" placeholder="أدخل تأكيد الرقم السري" ng-model="model.confirmPassword" />
+                <div class="pre-icon os-icon os-icon-fingerprint"></div>
+                <hr />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>رقم المحمول</label>
+        <input class="form-control" placeholder="أدخل رقم المحمول" ng-model="model.phoneNumber" />
+        <div class="pre-icon os-icon os-icon-phone-call"></div>
+        <hr />
+    </div>
+
+    <div class="buttons-w">
+        <button type="submit" class="btn btn-primary">التسجيل</button>
+        <button class="btn btn-success" type="button" ng-click="Setbarhref(0,0)">تسجيل الدخول</button>
+    </div>
+</form>

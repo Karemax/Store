@@ -1,0 +1,19 @@
+﻿<form id="OutcomeTypeformValidate">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="form-group">
+                <label for="">النوع</label>
+                <input class="form-control" placeholder="النوع" type="text" required="required" name="Type" ng-model="Enttiy.Title">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="">شهري ؟</label>
+                <input class="form-control" type="checkbox" ng-model="Enttiy.IsMonthly">
+            </div>
+        </div>
+    </div>
+    <div class="form-buttons-w">
+        <button class="btn btn-primary" type="submit" ng-click="CreateOutcomeType()"> تأكيد </button>
+    </div>
+</form>

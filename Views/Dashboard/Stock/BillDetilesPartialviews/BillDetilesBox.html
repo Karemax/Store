@@ -1,0 +1,84 @@
+﻿<div class="order-box">
+    <div class="order-details-box">
+        <div class="order-main-info">
+            <span>الفاتوره #</span>
+            <strong>{{All.code}}</strong>
+        </div>
+        <div class="order-sub-info">
+            <span>تمت في</span>
+            <strong>{{All.createdAt | date : 'MMM d, y'}}</strong>
+        </div>
+    </div>
+    <!--<div class="order-controls">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="">حالة الفاتوره</label>
+                <select class="form-control form-control-sm" disabled ng-model="All.status" ng-change="NoRemaining()"><option value="مدفوعه">مدفوعه</option><option value="ليست مدفوعه">ليست مدفوعه</option></select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="UpdateBill()">حفظ التغيرات</button>
+            </div>
+        </form>
+    </div>-->
+    <div class="order-items-table">
+        <div class="table-responsive">
+            <table class="table table-lightborder">
+                <thead>
+                    <tr>
+                        <th colspan="2">معلومات المنتج</th>
+                        <th width="135px">كمية</th>
+                        <th colspan="1">سعر الوحده</th>
+                        <th colspan="2">السعر الكلي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in All.packageItems" ng-class="{'bg-danger' :item.isBack }">
+                        <td>
+                            <div class="product-image" style="background-image: url({{item.mainImgSrc}}) "></div>
+                        </td>
+                        <td>
+                            <div class="product-name">{{item.name}}</div>
+                            <!--<div class="product-details">
+                                <span>Color: </span>
+                                <strong> Gold Coral</strong>
+                                <div class="color-box" style="background-color: #D4C1A2"></div>
+                            </div>-->
+                        </td>
+                        <td>
+                            <div class="quantity-selector">
+                                <div class="quantity-input">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend input-group-sm">
+                                            <div class="input-group-text" ng-click="minus(item)">
+                                                <div class="os-icon os-icon-minus2"></div>
+                                            </div>
+                                        </div>
+                                        <input class="form-control form-control-sm" disabled value="{{item.quantity}}">
+                                        <div class="input-group-append input-group-sm">
+                                            <div class="input-group-text" ng-click="Plus(item)">
+                                                <div class="os-icon os-icon-plus"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-md-left">
+                            <div class="product-price"><input class="form-control form-control-sm" ng-change="GetTotal(item)" ng-model="item.price"> </div>
+                        </td>
+                        <td class="text-md-left">
+                            <div class="product-price">{{item.totalPrice}}</div>
+                        </td>
+                        <td>
+                            <a class="product-remove-btn" href="" ng-click="isBack(item)" ng-hide="(item.showing - item.quantity) > 0">
+                                <div class="os-icon os-icon-x" ng-show="!item.isBack" ></div>
+                                <div class="os-icon os-icon-check" ng-show="item.isBack"></div>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

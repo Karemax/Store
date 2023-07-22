@@ -1,0 +1,30 @@
+﻿<div class="form-desc" ng-show="Islength">
+    يجب  <a href="#/AllOutcomeType" target="_blank"> أضافه  أنوع المصروفات </a> أولاً
+</div>
+<form id="OutcomeformValidate" ng-show="!Islength">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="">العنوان</label>
+                <input class="form-control" placeholder="العنوان" type="text" name="Type" ng-model="EnttiyOutcome.Title">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for=""> نوع المصروفات </label>
+                <select class="form-control" ng-model="EnttiyOutcome.OutComeTypeId">
+                    <option ng-repeat="Type in AllOutType" ng-value="{{Type.id}}">{{Type.title}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="">التكلفه</label>
+                <input class="form-control" placeholder="التكلفه" type="number" required="required" name="Cost" ng-model="EnttiyOutcome.Price">
+            </div>
+        </div>
+    </div>
+    <div class="form-buttons-w">
+        <button class="btn btn-primary" type="submit" ng-click="CreateOutcome()"> تأكيد </button>
+    </div>
+</form>

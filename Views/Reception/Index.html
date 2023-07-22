@@ -1,0 +1,212 @@
+﻿<div class="content-i" ng-controller="POSs">
+    <div aria-hidden="true" class="onboarding-modal modal fade animated" ng-controller="POS"
+         id="onboardingWideFormModal00" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-centered" role="document">
+            <div class="modal-content text-center">
+                <button aria-label="Close" class="close"
+                        data-dismiss="modal" type="button">
+                    <span class="close-label">
+                        Close
+                    </span><span class="os-icon os-icon-close"></span>
+                </button>
+                <div class="onboarding-side-by-side">
+                    @*<div class="onboarding-media">
+                        <img alt="" src="img/bigicon5.png" width="200px">
+                    </div>*@
+                    <div class="onboarding-content with-gradient" style="width: 100%;">
+                        <h4 class="onboarding-title">{{Enttiy.ProductId.name}}</h4>
+                        <div class="onboarding-text">
+                            {{Enttiy.ProductId.description}}
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-4">
+                                    <div class="form-group">
+                                        <label for=""> حدد اللون </label>
+                                        <select class="form-control" ng-model="Enttiy.Color" ng-change="Enttiy.NumberOfPieces = 1">
+                                            <option ng-repeat="s in Enttiy.ItemAvailableColor" ng-value="s.colorIndex" ng-style="{'background-color': s.color}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-lg-4">
+                                    <div class="form-group">
+                                        <label for=""> حدد المقاس </label>
+                                        <select class="form-control" ng-model="Enttiy.Size" ng-change="Enttiy.NumberOfPieces = 1">
+                                            <option ng-repeat="s in Enttiy.ItemAvailableColor[Enttiy.Color].availableSizes" ng-value="s.sizeIndex"> {{s.size}} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-buttons-w">
+                                <button class="btn btn-primary" data-dismiss="modal" type="submit" ng-click="AddMeToChart()">تأكيد</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div aria-hidden="true" class="onboarding-modal modal fade animated" id="onboardingWideFormModal" role="dialog" tabindex="-1" style="direction: ltr;" ng-controller="POS">
+        <div class="modal-dialog modal-lg modal-centered" role="document">
+            <div class="modal-content text-center">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="os-icon os-icon-close"></span><span class="close-label">أغلاق</span></button>
+                <div class="onboarding-slider-w">
+                    <div class="onboarding-slide">
+                        <div class="onboarding-side-by-side">
+                            <div class="onboarding-content with-gradient">
+                                <h4 class="onboarding-title">{{Enttiy.ProductId.name}}</h4>
+                                <div class="onboarding-text">أختر اللون.</div>
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-sm-1 Basics" ng-repeat="s in Enttiy.ItemAvailableColor">
+                                        <div class="B-selector color-selector" ng-click="OnlyColorMeSelected(s.colorIndex,Enttiy.ItemAvailableColor)" ng-style="{'background-color': s.color}" ng-class="{'selected' : s.isSelected}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="onboarding-slide">
+                        <div class="onboarding-side-by-side">
+                            <div class="onboarding-content with-gradient">
+                                <h4 class="onboarding-title">{{Enttiy.ProductId.name}}</h4>
+                                <div class="onboarding-text">أختر المقاس و عدد الفطع.</div>
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-sm-1 Basics" ng-repeat="s in Enttiy.ItemAvailableColor[Enttiy.Color].availableSizes">
+                                        <div class="B-selector text-selector" ng-click="OnlySizeMeSelected(s.sizeIndex,Enttiy.ItemAvailableColor[Enttiy.Color].availableSizes)" ng-class="{'selected' : s.isSelected}">{{s.size}}</div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center p-2 mt-2">
+                                    <div class="form-group w-100">
+                                        <label for=""> عدد القطع </label>
+                                        <div class="row m-3 align-items-center justify-content-center">
+                                            <div class="Icon-Dy" ng-click="minus()">
+                                                <i class="os-icon os-icon-ui-23"></i>
+                                            </div>
+                                            <div class="m-auto">
+                                                {{Enttiy.NumberOfPieces}}
+                                            </div>
+                                            <div class="Icon-Dy" ng-click="Plus()">
+                                                <i class="os-icon os-icon-ui-22"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-buttons-w">
+                                    <button class="btn btn-primary" data-dismiss="modal" type="submit" ng-click="AddMeToChart()">تأكيد</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-box d-none" ng-class="{'d-block': !POS.isLoading }">
+        <div class="row">
+            <partial name="Partial/_POS" />
+            <div class="col-lg-5" ng-show="cart.length > 0">
+                <div class="padded-lg">
+                    <div class="element-wrapper">
+                        <div class="element-box">
+                            <div class="invoice-w">
+                                <div class="infos">
+                                    <div class="info-1">
+                                        <div class="invoice-logo-w">
+                                            <img alt="" src="img/logo-big.png">
+                                        </div>
+                                        <div class="company-name">{{BusinessName}}</div>
+                                        <div class="company-address">
+                                            47 Countrylane Ave,
+                                            <br>Los Angeles, CA 97446
+                                            <br>United States
+                                        </div>
+                                        <div class="company-extra">tel. 858.745.5577</div>
+                                    </div>
+                                </div>
+                                <div class="invoice-heading">
+                                    <h3>الفاتوره</h3>
+                                    <div class="invoice-date">@DateTime.Now</div>
+                                </div>
+                                <div class="invoice-body">
+                                    @*<div class="invoice-desc">
+                                        <div class="desc-label">Invoice #</div>
+                                        <div class="desc-value">HSFB 342823</div>
+                                    </div>*@
+                                    <div class="invoice-table w-100">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-right">الأسم</th>
+                                                    <th>العدد</th>
+                                                    <th>المقاس</th>
+                                                    <th>اللون</th>
+                                                    <th>السعر</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="it in cart">
+                                                    <td class="text-right">
+                                                        <i class="os-icon os-icon-trash" ng-click="DeleteMEFormCart(it)"></i> - {{it.Name}}
+                                                    </td>
+                                                    <td>
+                                                        <div class="row m-3">
+                                                            <div class="Icon-Dy" ng-click="minusCart(it)">
+                                                                <i class="os-icon os-icon-ui-23"></i>
+                                                            </div>
+                                                            <div class="m-auto">
+                                                                {{it.NumberOfPieces}}
+                                                            </div>
+                                                            <div class="Icon-Dy" ng-click="PlusCart(it)">
+                                                                <i class="os-icon os-icon-ui-22"></i>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>{{it.Size}}</td>
+                                                    <td>
+                                                        <div class="Basics">
+                                                            <div class="B-selector color-selector selected" ng-style="{'background-color': it.Color}"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td>{{it.Price}}</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="4">السعر الكلي</td>
+                                                    <td>{{TotalPrice}}</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <div class="terms">
+                                            <div class="terms-header">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <button class="btn btn-primary" type="submit" ng-click="CreateCheckout()"> تأكيد</button>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" placeholder="الخصم" required="required" type="number" min="0" value="{{DiscountPrice}}" ng-model="DiscountPrice" ng-change="ChangeDiscount(DiscountPrice)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="invoice-footer">
+                                    <div class="invoice-logo">
+                                        <img alt="" src="img/logo.png">
+                                        <span>StoreMe Inc</span>
+                                    </div>
+                                    <div class="invoice-info">
+                                        <span>hello@paper.inc</span>
+                                        <span>858.757.4455</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

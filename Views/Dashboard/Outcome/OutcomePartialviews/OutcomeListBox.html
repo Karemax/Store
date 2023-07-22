@@ -1,0 +1,24 @@
+﻿<div class="table-responsive" ng-hide="Islength">
+    <table class="table table-lightborder">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>العنوان</th>
+                <th>التكلفه</th>
+                <th>النوع</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="ty in All">
+                <td>{{$index+1}}</td>
+                <td>{{ty.title}}</td>
+                <td>{{ty.price}}</td>
+                <td>{{ty.outComeType}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-desc" ng-show="Islength">
+    لا يوجد مصروفات بعد ...
+</div>
+s

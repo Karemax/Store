@@ -1,0 +1,19 @@
+﻿<div class="content-box">
+
+    <div ng-include="'/Views/GlobalElements/SectionsNavigator.html'" ng-show="Bar.sections.length > 1">
+    </div>
+    <div ng-repeat="s in Bar.sections" ng-show="s.isActive" ng-class="s.col">
+        <div ng-repeat="sub in s.subsections" ng-class="sub.col" class="element-wrapper">
+            <h6 class="element-header">
+                {{sub.titel}}
+                <span ng-if="sub.HasSearchInheader" class="input" ng-show="Islength">
+                    <input class='form-control' name='search' placeholder='أدخل اسم {{sub.titel}}' type='search' ng-model='query'>
+                </span>
+            </h6>
+            <div ng-include="sub.view" class="element-box">
+
+            </div>
+        </div>
+    </div>
+
+</div>

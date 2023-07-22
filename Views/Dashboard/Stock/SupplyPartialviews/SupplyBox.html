@@ -1,0 +1,164 @@
+﻿
+<div class="onboarding-modal modal fade animated" id="onboardingWideFormModalitemColor" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-centered" role="document">
+        <div class="modal-content text-center">
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">أغلاق</span><span class="os-icon os-icon-close"></span></button>
+            <div class="onboarding-media">
+                <img alt="" src="img/bigicon2.png" width="200px">
+            </div>
+            <div class="onboarding-content with-gradient">
+                <h4 class="onboarding-title">أضافه لون</h4>
+                <div class="onboarding-text"> ... </div>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-sm-auto P-Sizes" ng-repeat="color in Colors" ng-click="AddColor(color)">
+                        <div class="color-selector" ng-style="{'background-color': color.code}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="onboarding-modal modal fade animated" id="onboardingWideFormModalitemSize" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-centered" role="document">
+        <div class="modal-content text-center">
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">أغلاق</span><span class="os-icon os-icon-close"></span></button>
+            <div class="onboarding-media">
+                <img alt="" src="img/bigicon2.png" width="200px">
+            </div>
+            <div class="onboarding-content with-gradient">
+                <h4 class="onboarding-title">أضافه مقاس</h4>
+                <div class="onboarding-text"><div class="color-selector" ng-style="{'background-color': SelectColor.color}"></div></div>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-sm-auto P-Sizes" ng-repeat="size in Sizes">
+                        <div class="P-Sizes-Label">{{size.name}}</div>
+                        <div class="row align-items-center justify-content-center">
+                            <div class="P-Sizes">
+                                <div class="row AddCard" ng-click="AddSize(size)">
+                                    <i class="os-icon os-icon-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-desc" ng-show="!Islength">
+    يجب أولا
+    <span class="Click-link" ng-click="Setbar(SiteMapSrc[8])"> أضافه أسماء المنتجات </span>
+    و
+    <span class="Click-link" ng-click="Setbar(SiteMapSrc[3])"> أضافه مورديين </span>
+    حتي تتمكن من أضافه فاتوره جديده
+</div>
+
+
+<form id="addPackageformValidate" ng-show="Islength">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="">المورد</label>
+                <select class="form-control" ng-model="PackEnttiy.SupplierId">
+                    <option ng-repeat="sup in Allsup" ng-value="{{sup.id}}">{{sup.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="Remaining"> المبلغ المتبقي</label>
+                <input class="form-control" placeholder="المبلغ المتبقي" name="Remaining" required="required" type="number" ng-model="PackEnttiy.Remaining">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="TotlaPrice">سعر الفاتوره الكليه </label>
+                <input class="form-control" placeholder="الفاتوره الكليه" name="TotlaPrice" disabled type="number" ng-model="PackEnttiy.TotlaPrice">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="Shipping"> مصاريف الشحن</label>
+                <input class="form-control" placeholder="مصاريف الشحن" name="Shipping" type="number" ng-model="PackEnttiy.Shipping">
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="form-group">
+                <label for="Note"> الملاحظات</label>
+                <textarea class="form-control" placeholder="الملاحظات" name="Note" ng-model="PackEnttiy.Note" style="height: 38px;"></textarea>
+            </div>
+        </div>
+    </div>
+    <div ng-repeat="item in PackEnttiy.PackageItem" ng-class="{ 'DisActiveSection' : !item.IsActive }">
+        <legend><span> {{$index+1}}</span></legend>
+        <div class="row m-3">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">أسم المنتح</label>
+                    <select class="form-control" ng-model="item.UnitCategory" ng-change="PicesNumberChanger(item)">
+                        <option ng-repeat="TypeStyle in AllTypeStyle" ng-value="{{TypeStyle.id}}">{{TypeStyle.productType}}  {{TypeStyle.title}}  {{TypeStyle.gender}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="NOP"> عدد القطع<span class="blue" ng-show="item.quantity > 0"> : {{item.quantity}}</span></label>
+                    <input class="form-control" placeholder="عدد القطع" name="NOP" required="required" type="number" ng-change="getTotal()" ng-model="item.NumberOfPieces">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="price"> السعر الكلي</label>
+                    <input class="form-control" placeholder="السعر الكلي" name="price" ng-change="getTotal()" required="required" type="number" ng-model="item.TotalPrice">
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group flex-row justify-content-center">
+                    <a class="mr-2 mb-2 btn btn-outline-danger" type="button" href="" ng-click="RemoveNewCart(item)" ng-show="$index >= 1">
+                        <i class="os-icon os-icon-minus"></i>
+                    </a>
+                    <a class="mr-2 mb-2 btn" type="button" href="" ng-class=" item.IsProductActive ? 'btn-secondary' : 'btn-outline-secondary'" ng-click="IsProductActive(item)">
+                        <i class="os-icon os-icon-shopping-cart"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center" ng-show="item.IsProductActive">
+
+            <div class="col-sm-auto P-Sizes">
+                <div class="P-Sizes-Label">أضافه لون</div>
+                <div class="row AddCard" data-target="#onboardingWideFormModalitemColor" data-toggle="modal" ng-click="ChoseItem($index)">
+                    <i class="os-icon os-icon-plus"></i>
+                </div>
+            </div>
+            <div class="col-sm-auto P-Sizes" ng-repeat="color in item.Colors">
+                <div class="P-Sizes-Label" ng-style="{'background-color': color.code}"></div>
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-sm-auto P-Sizes AddCard" data-target="#onboardingWideFormModalitemSize" data-toggle="modal" ng-click="ChoseColor($index)">
+                        <i class="os-icon os-icon-plus"></i>
+                    </div>
+                    <div class="col-sm-auto P-Sizes" ng-repeat="Size in color.sizes">
+                        <div>
+                            <div class="P-Sizes-Label">
+                                {{Size.name}}
+                                <i class="os-icon os-icon-x" ng-click="DeleteSize($index,color.sizes)"></i>
+                            </div>
+                        </div>
+                        <div class="row P-Size-q">
+                            <div class="col-4 Icon-Dy" ng-click="minus(Size)">
+                                <i class="os-icon os-icon-ui-23"></i>
+                            </div>
+                            <div class="col-4">
+                                {{Size.quantity}}
+                            </div>
+                            <div class="col-4 Icon-Dy" ng-click="Plus(Size)">
+                                <i class="os-icon os-icon-ui-22"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

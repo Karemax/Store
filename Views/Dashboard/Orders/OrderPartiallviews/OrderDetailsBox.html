@@ -1,0 +1,88 @@
+﻿<div class="ecommerce-customer-info">
+    <div class="ecommerce-customer-main-info">
+        <div class="element-actions">
+            <a class="mr-2 mb-2 btn btn-outline-primary float-right" ng-show="!Order.isBack" ng-click="Update(Order,false)" data-placement="left" data-toggle="tooltip" data-original-title="حفظ التغيرات" type="button" href=""> <i class="os-icon os-icon-save"></i></a>
+            <a class="mr-2 mb-2 btn btn-outline-danger float-left" ng-show="!Order.isBack" ng-click="Update(Order,true)" data-placement="right" data-toggle="tooltip" data-original-title="أرجاع الفاتوره" type="button" href=""> <i class="os-icon os-icon-database-remove"></i></a>
+        </div>
+        <div class="ecc-name">{{Order.bill.totalPrice + ' ' + 'LE'}} </div>
+    </div>
+    <div class="ecommerce-customer-sub-info">
+        <div class="ecc-sub-info-row">
+            <div class="sub-info-label">كود الفاتوره</div>
+            <div class="sub-info-value">
+                <a href="">{{Order.code}}</a>
+            </div>
+        </div>
+        <div class="ecc-sub-info-row">
+            <div class="sub-info-label">تاريخ الفاتوره</div>
+            <div class="sub-info-value">{{Order.createdAt | date : 'd/M/yyyy h:mm:ss a'}}</div>
+        </div>
+        <div class="ecc-sub-info-row">
+            <div class="sub-info-label">حاله الفاتوره</div>
+            <div class="sub-info-value">{{Order.state}}</div>
+        </div>
+        <div class="ecc-sub-info-row">
+            <div class="sub-info-label">الخصم</div>
+            <div class="sub-info-value">{{Order.discount}}</div>
+        </div>
+        <div class="ecc-sub-info-row">
+            <div class="sub-info-label">سعر الفاتوره بعد االخصم</div>
+            <div class="sub-info-value">{{Order.bill.totalPrice - Order.discount  + ' ' + 'LE'}}</div>
+        </div>
+    </div>
+    <div class="os-tabs-controls">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#tab_overview"> التفاصيل</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-right">الأسم</th>
+                    <th>عدد القطع</th>
+                    <th>المقاس</th>
+                    <th>اللون</th>
+                    <th>سعر القطعه</th>
+                    <th>الخصم</th>
+                    <th>سعر القطعه النهائي</th>
+                    <th ng-show="!Order.isBack">مرتجع</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="orditem in Order.orderItems" ng-class="{'bg-danger' : orditem.isBack }">
+                    <td class="text-right">
+                        {{orditem.name}}
+                    </td>
+                    <td>
+                        <div class="row m-3">
+                            {{orditem.count}}
+                        </div>
+                    </td>
+                    <td>{{orditem.size}}</td>
+                    <td>
+                        <div class="Basics">
+                            <div class="B-selector color-selector selected" ng-style="{'background-color': orditem.colorCode}"></div>
+                        </div>
+                    </td>
+                    <td class="ng-binding">{{orditem.price}}</td>
+                    <td ng-if="isOwner()">
+                        <input class="form-control" type="number" placeholder="Discount" ng-model="orditem.discount" ng-change="ChangeDiscount(orditem)">
+                    </td>
+                    <td ng-if="!isOwner()">
+                        {{orditem.discount}}
+                    </td>
+                    <td class="ng-binding">{{orditem.price - orditem.discount}}</td>
+                    <td ng-show="!Order.isBack">
+                        <a class="product-remove-btn" href="" ng-click="orditem.isBack = !orditem.isBack">
+                            <div class="os-icon os-icon-x" ng-show="!orditem.isBack"></div>
+                            <div class="os-icon os-icon-check" ng-show="orditem.isBack"></div>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

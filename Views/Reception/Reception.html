@@ -1,0 +1,10 @@
+﻿<div>
+    <div>
+        <div class="content-i" id="dynamic-ctrl">
+            <div ng-repeat="s in Bar.sections" id="tab{{$index}}" ng-show="s.isActive" ng-class="s.col">
+                <div ng-repeat="sub in s.subsections" ng-include="sub.view" ng-class="sub.col">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

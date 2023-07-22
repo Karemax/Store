@@ -1,0 +1,97 @@
+﻿<script>
+    $(function () {
+        $('input[name="DateOfBirth"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+        });
+    });
+</script>
+<form id="EmployeeformValidate">
+    <h5 class="form-header">أنشاء بائع جديد</h5>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for=""> أسم الستخدم</label>
+                <input class="form-control" id="UserName" name="UserName" data-error=".errorTxt6" placeholder="أدخل أسم الستخدم" required="required" type="text" ng-model="Enttiy.UserName">
+                <div class="errorTxt6"></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for=""> البريد الألكتروني</label>
+                <input class="form-control" id="Email" name="Email" data-error=".errorTxt7" placeholder="البريد الألكتروني" required="required" type="email" ng-model="Enttiy.Email">
+                <div class="errorTxt7"></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for=""> الرقم السري</label>
+                <input class="form-control pr-password" id="Password" name="Password" data-error=".errorTxt8" placeholder="الرقم السري" required="required" type="password" ng-model="Enttiy.Password">
+                <div class="errorTxt8"></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="">تأكيد الرقم السري</label>
+                <input class="form-control" id="ConfirmPassword" name="ConfirmPassword" data-error=".errorTxt9" placeholder="تأكيد الرقم السري" required="required" type="password" ng-model="Enttiy.ConfirmPassword">
+                <div class="errorTxt9"></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="">النوع</label>
+                <select class="form-control" ng-model="Enttiy.Role">
+                    <option ng-repeat="Role in Roles" value="{{Role.name}}">{{Role.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <fieldset>
+        <legend><span>معلومات شخصيه</span></legend>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for=""> الأسم الأول</label>
+                    <input class="form-control" id="FName" name="FName" data-error=".errorTxt1" placeholder="الأسم الأول" required="required" ng-model="Enttiy.FristName">
+                    <div class="errorTxt1"></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">الأسم الأخير</label>
+                    <input class="form-control" id="LName" name="LName" data-error=".errorTxt2" placeholder="الأسم الأخير" required="required" ng-model="Enttiy.LastName">
+                    <div class="errorTxt2"></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for=""> رقم الهاتف </label>
+                    <input class="form-control" id="PhoneNumber" name="PhoneNumber" data-error=".errorTxt5" placeholder="رقم الهاتف" value="+02" type="number" ng-model="Enttiy.PhoneNumber">
+                    <div class="errorTxt5"></div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">النوع</label>
+                    <select class="form-control" ng-model="Enttiy.Gender">
+                        <option value="ذكر" selected>ذكر</option>
+                        <option value="أنثي">أنثي</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for=""> تاريخ الميلاد</label>
+                    <div class="date-input form-control">
+                        <input class="single-daterange" type="text" name="DateOfBirth" data-error=".errorTxt3" placeholder="تاريخ الميلاد" value="04/12/2022" ng-model="Enttiy.DateOfBirth">
+                    </div>
+                    <div class="errorTxt3"></div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+    <div class="form-buttons-w">
+        <button class="btn btn-primary" type="submit" ng-click="CreateEmployee()"> تأكيد</button>
+    </div>
+</form>

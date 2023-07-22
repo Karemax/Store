@@ -1,0 +1,730 @@
+﻿<!DOCTYPE html>
+<html ng-app="SPAApp">
+<head>
+    <title>StoreMe - Admin Dashboard</title>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="template language" name="keywords">
+    <meta content="Tamerlan Soziev" name="author">
+    <meta content="StoreMe" name="description">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <link href="favicon.png" rel="shortcut icon">
+    <link href="apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="../fast.fonts.net/cssapi/487b73f1-c2d1-43db-8526-db577e4c822b.css" rel="stylesheet">
+    <link href="icon_fonts_assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="bower_components/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
+    <link href="bower_components/validate-password-requirements/css/jquery.passwordRequirements.css" rel="stylesheet">
+    <link href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
+    <link href="icon_fonts_assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/main5739.css?version=4.5.0" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.min.js"></script>
+    <script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+    <script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+    <script src="bower_components/ckeditor/ckeditor.js"></script>
+    <script src="bower_components/validate-password-requirements/js/jquery.passwordRequirements.min.js"></script>
+    <script src="bower_components/jquery.validate.min.js"></script>
+    <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+    <script src="bower_components/dropzone/dist/dropzone.js"></script>
+    <script src="bower_components/editable-table/mindmup-editabletable.js"></script>
+    <script src="bower_components/sweetalert/sweetalert.min.js"></script>
+    <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script src="bower_components/bootstrap/js/dist/util.js"></script>
+    <script src="bower_components/bootstrap/js/dist/alert.js"></script>
+    <script src="bower_components/bootstrap/js/dist/button.js"></script>
+    <script src="bower_components/bootstrap/js/dist/carousel.js"></script>
+    <script src="bower_components/bootstrap/js/dist/collapse.js"></script>
+    <script src="bower_components/bootstrap/js/dist/dropdown.js"></script>
+    <script src="bower_components/bootstrap/js/dist/modal.js"></script>
+    <script src="bower_components/bootstrap/js/dist/tab.js"></script>
+    <script src="bower_components/bootstrap/js/dist/tooltip.js"></script>
+    <script src="bower_components/bootstrap/js/dist/popover.js"></script>
+    <script src="js/demo_customizer5739.js?version=4.5.0"></script>
+    <script src="js/lottie.min.js"></script>
+    <script src="js/FormValidate.js"></script>
+    <script src="js/main5739.js?version=4.5.0"></script>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-sanitize.min.js"></script>
+    <script src="Services/moment/moment-with-locales.js"></script>
+    <script src="Services/moment/angular-moment-picker.js"></script>
+    <script src="Services/moment/moment.js"></script>
+    <script type="module" src="Services/fetch.js"></script>
+    <script src="Index.js"></script>
+    <script src="Services/fileUploader.js"></script>
+    <script src="Services/DBContext.ng.js"></script>
+
+    <script src="Controllers/GlobalController.ng.js"></script>
+
+    <script src="Controllers/Account/AccountController.ng.js"></script>
+    <script src="Controllers/ReceptionController/ReceptionController.js"></script>
+    <script src="Controllers/Controller/MainController.ng.js"></script>
+
+    <script src="Controllers/AdministrationController/Basics/Main.ng.js"></script>
+    <script src="Controllers/AdministrationController/Business/Packages.ng.js"></script>
+
+    <script src="Controllers/Account/Login/Login.ng.js"></script>
+    <script src="Controllers/Account/Register/Register.ng.js"></script>
+    <script src="Controllers/Account/Business/BusinessController.js"></script>
+
+    <script src="Controllers/Controller/Basics/Main.ng.js"></script>
+    <script src="Controllers/Controller/Basics/ProductBasics.ng.js"></script>
+    <script src="Controllers/Controller/Employee/CreateEmployee.ng.js"></script>
+    <script src="Controllers/Controller/Employee/EmployeeList.ng.js"></script>
+    <script src="Controllers/Controller/Employee/EProfile.ng.js"></script>
+    <script src="Controllers/Controller/Finance/Main.ng.js"></script>
+    <script src="Controllers/Controller/Finance/Report.ng.js"></script>
+    <script src="Controllers/Controller/Inventory/AllPackage.ng.js"></script>
+    <script src="Controllers/Controller/Inventory/Profile.ng.js"></script>
+    <script src="Controllers/Controller/Orders/Main.ng.js"></script>
+    <script src="Controllers/Controller/Outcome/AllOutcome.ng.js"></script>
+    <script src="Controllers/Controller/Outcome/AllOutcomeType.ng.js"></script>
+    <script src="Controllers/Controller/POS/Main.ng.js"></script>
+    <script src="Controllers/Controller/Products/AddNewProductUnitCat.ng.js"></script>
+    <script src="Controllers/Controller/Products/AllProduct.ng.js"></script>
+    <script src="Controllers/Controller/Products/AllProductPriceing.ng.js"></script>
+    <script src="Controllers/Controller/Products/AllProductUnitCat.ng.js"></script>
+    <script src="Controllers/Controller/Products/ProductDetiles.ng.js"></script>
+    <script src="Controllers/Controller/Stock/BillDetiles.ng.js"></script>
+    <script src="Controllers/Controller/Stock/Remaining.ng.js"></script>
+    <script src="Controllers/Controller/Stock/Stock.ng.js"></script>
+    <script src="Controllers/Controller/Stock/Supply.ng.js"></script>
+    <script src="Controllers/Controller/Store/Store.ng.js"></script>
+
+</head>
+<body class="menu-position-side menu-side-left full-screen" ng-controller="Global">
+    <!--<div class="HttpLoader" httpLoader>
+        <div class="lds-hourglass"></div>
+    </div>-->
+    <div ng-if="!IsAuth" ng-controller="AccountController">
+        <div ng-view>
+
+        </div>
+    </div>
+
+    <!--------------------------------------------------------------------------->
+
+    <div ng-if="IsAuth">
+        <script>
+            $('[data-toggle="tooltip"]').tooltip();
+            function setupReader(file, i) {
+                if (i != ii) {
+                    var ii = i;
+                    var t = new FileReader;
+                    t.onload = function (e) {
+                        const newDiv = document.createElement("div");
+                        newDiv.classList.add("imagePreviews", "col-sm-auto");
+                        var ClassName = "imagePreviews" + i;
+                        newDiv.classList.add(ClassName);
+                        var element = document.getElementById("imagePreviewsPag");
+                        element.appendChild(newDiv);
+                        $("." + ClassName).css("background-image", "url(" + e.target.result + ")"),
+                            $("." + ClassName).hide(),
+                            $("." + ClassName).fadeIn(650)
+                    },
+                        t.readAsDataURL(file)
+                }
+            }
+
+            $(function ($scope) {
+                $('input[name="from"]').daterangepicker({
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                    startDate: $scope.From
+                });
+                $('input[name="to"]').daterangepicker({
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                    startDate: $scope.To
+                });
+                $('input[name="date"]').daterangepicker({
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                    startDate: $scope.Date
+                });
+            });
+
+            $(function ($scope) {
+                $('input[name="DateOfBirth"]').daterangepicker({
+                    singleDatePicker: true,
+                    showDropdowns: true,
+                });
+            });
+
+            $(".pr-password").passwordRequirements({
+                numCharacters: 8,
+                useLowercase: true,
+                useUppercase: true,
+                useNumbers: true,
+                useSpecial: true
+            });
+
+
+            // -------------------------------------------------------------------
+
+            $("#imageUpload").change(function () {
+                !function (e) {
+                    $(".upload-item-box label #imagePreview+.content ").hide();
+                    if (e.files && e.files[0]) {
+                        var t = new FileReader; t.onload = function (e) {
+                            $("#imagePreview").css("background-image", "url(" + e.target.result + ")"), $("#imagePreview").hide(), $("#imagePreview").fadeIn(650)
+                        }, t.readAsDataURL(e.files[0])
+                    }
+                }(this)
+            });
+
+            $("#imageUploads").change(function (e) {
+                e.stopImmediatePropagation();
+                var element = $("#imagePreviewsPag");
+                element.empty();
+                var files = e.currentTarget.files;
+                for (var i = 0; i < files.length; i++) {
+                    if (files[i]) {
+                        setupReader(files[i], i);
+                    };
+                };
+                $("#imageUploadslabel .content").hide();
+                $("#imagePreviewsPag").css("position", "relative");
+                $("#imagePreviewsPag").css("height", "100%");
+            });
+
+            // -------------------------------------------------------------------
+
+            $("#imageUpload").change(function () {
+                !function (e) {
+                    $("#imagePreview.content").hide();
+                    if (e.files && e.files[0]) {
+                        var t = new FileReader; t.onload = function (e) {
+                            $("#imagePreview").css("background-image", "url(" + e.target.result + ")"), $("#imagePreview").hide(), $("#imagePreview").fadeIn(650);
+                        }, t.readAsDataURL(e.files[0])
+                    }
+                }(this)
+            });
+        </script>
+
+        <div class="all-wrapper solid-bg-all" ng-controller="MainController">
+            <div class="layout-w">
+                <div class="menu-mobile menu-activated-on-click color-style-transparent color-scheme-light selected-menu-color-light">
+                    <div class="mm-logo-buttons-w">
+                        <a class="mm-logo" ng-href="#/Home">
+                            <img src="img/logo.png"><span class="Logo-Text"><img src="img/Logo-Text2.png"></span>
+                        </a>
+                        <div class="mm-buttons">
+                            <div class="mobile-menu-trigger" ng-click="ToggelMenu = !ToggelMenu">
+                                <div class="os-icon os-icon-hamburger-menu-1" ng-show="!ToggelMenu"></div>
+                                <div class="os-icon os-icon-arrow-2-down" ng-show="ToggelMenu"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-and-user" ng-show="ToggelMenu">
+                        <div class="logged-user-w avatar-inline">
+                            <div class="logged-user-i">
+                                <div class="logged-user-menu color-style-bright">
+                                    <div class="logged-user-avatar-info">
+                                        <div class="avatar-w">
+                                            <img src="img/avatar1.jpg" alt="{{Username}}">
+                                        </div>
+                                        <div class="logged-user-info-w">
+                                            <div class="logged-user-name">
+                                                <a id="manage" class="nav-link text-dark ng-binding" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">أهلا {{Username}}</a>
+                                            </div>
+                                            <div class="logged-user-role"></div>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <!--<li>
+                                            <a href="users_profile_big.html">
+                                                <i class="os-icon os-icon-user-male-circle2"></i><span>
+                                                    الملف الشخصي
+                                                </span>
+                                            </a>
+                                        </li>-->
+                                        <li style="display: inherit;">
+                                            <a ng-click="logout();"><i class="os-icon os-icon-signs-11"></i><span>تسجيل الخروج</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="main-menu">
+                            <li class="selected" ng-repeat="m in SiteMap | filter : {ShowWithMenu:true}">
+                                <a ng-click="Setbar(m)">
+                                    <div class="icon-w">
+                                        <div class="{{m.icon}}"></div>
+                                    </div>
+                                    <span>{{m.titel}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--<div class="mobile-menu-magic">
+                            <h4>StoreMe</h4>
+                            <p>&copy; 2022 By Linkers Inc.</p>
+                           <div class="btn-w">
+                            <a class="btn btn-white btn-rounded"
+                               ng-href="#/POS/Index"
+                               target="_blank">نقطة البيع</a>
+                        </div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="menu-w selected-menu-color-light menu-activated-on-hover menu-has-selected-link color-scheme-light color-style-default sub-menu-color-bright menu-position-side menu-side-right menu-layout-mini sub-menu-style-flyout">
+                    <div class="logo-w">
+                        <a class="logo" ng-href="#/Home">
+                            <img src="/img/logo.png">
+                            <div class="logo-label">StoreMe</div>
+                        </a>
+                    </div>
+                    <div class="logged-user-w avatar-inline">
+                        <div class="logged-user-i">
+                            <div class="avatar-w">
+                                <img alt="" src="img/avatar1.jpg">
+                            </div>
+                            <div class="logged-user-info-w">
+                                <div class="logged-user-name">
+                                    <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">أهلا {{Username}}</a>
+                                </div>
+                                <div class="logged-user-role">Administrator</div>
+                            </div>
+                            <div class="logged-user-toggler-arrow">
+                                <div class="os-icon os-icon-chevron-down"></div>
+                            </div>
+                            <div class="logged-user-menu color-style-bright">
+                                <div class="logged-user-avatar-info">
+                                    <div class="avatar-w">
+                                        <img alt="" src="img/avatar1.jpg">
+                                    </div>
+                                    <div class="logged-user-info-w">
+                                        <div class="logged-user-name">
+                                            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">أهلا {{Username}}</a>
+                                        </div>
+                                        <div class="logged-user-role"></div>
+                                    </div>
+                                </div>
+                                <div class="bg-icon">
+                                    <i class="os-icon os-icon-wallet-loaded"></i>
+                                </div>
+                                <ul>
+                                    <!--<li>
+                                        <a href="users_profile_big.html">
+                                            <i class="os-icon os-icon-user-male-circle2"></i><span>
+                                                الملف الشخصي
+                                            </span>
+                                        </a>
+                                    </li>-->
+                                    <li>
+                                        <a ng-click="logout();"><i class="os-icon os-icon-signs-11"></i><span>تسجيل الخروج</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="menu-page-header">Page Header</h1>
+                    <ul class="main-menu">
+                        <li class="has-sub-menu" ng-repeat="m in SiteMap | filter : {ShowWithMenu:true}">
+                            <a ng-click="Setbar(m)">
+                                <div class="icon-w">
+                                    <div class="os-icon {{m.icon}}"></div>
+                                </div>
+                                <span>{{m.titel}}</span>
+                            </a>
+                            <div class="sub-menu-w">
+                                <div class="sub-menu-header">{{m.titel}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-w">
+                    <div>
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="AiBar">
+                                    <div class="row">
+                                        <div class="barTitel col-auto">
+                                            <p>{{Bar.titel}}</p>
+                                        </div>
+                                        <div class="barbutton col-auto" ng-hide="Bar.sublinks.length <= 0 && Bar.funbutton.length <= 0">
+                                            <div class="barsublinks col-auto" ng-hide="Bar.sublinks.length <= 0">
+                                                <div ng-repeat="slink in Bar.sublinks" ng-click="Setbar(slink)">
+                                                    <a class="btn btn-outline-light">
+                                                        <i class="{{slink.icon}}"></i><span>{{slink.titel}}</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div ng-repeat="Fbutn in Bar.funbutton" ng-hide="Bar.funbutton.length <= 0" class="FunDo col-auto">
+                                                <a class="btn btn-outline-light" ng-click="DoFun(Fbutn.action)" href="" type="button"> <i class="{{Fbutn.icon}}"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="top-menu-controls" style="margin: auto;">
+                                    <div class="user-avatar-w">
+                                        <div class="user-avatar " ng-click="GotoMystore()" style="cursor: pointer;">
+                                            <img ng-hide="BusinessLogo == null" src="{{Imgpath}}/{{BusinessLogo}}" />
+                                            <img ng-show="BusinessLogo == null" src="img/logo.png" />
+                                        </div>
+                                    </div>
+                                    <h1 style="font-family: fantasy; color: #009dff">{{BusinessName}}</h1>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="AiBar">
+                                    <div class="row">
+                                        <div ng-repeat="butn in Bar.button" data-toggle="modal" data-target="{{butn.datatarget}}" ng-hide="Bar.button.length <= 0" class="col-auto">
+                                            <a class="btn btn-outline-light" href="" type="button"> <i class="{{butn.icon}}"></i><span>{{butn.titel}}</span></a>
+                                        </div>
+                                        <div class="barback col-auto" ng-hide="Bar.back.length <= 0">
+                                            <a class="btn btn-outline-light" ng-click="goBack()">
+                                                <i class="os-icon os-icon-arrow-left5"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="content-i" id="dynamic-ctrl">
+                                <div class="content-box">
+                                    <!-- Modals-->
+                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="Slid-Inventory">
+                                                        <div ng-repeat="slid in SlidInventory">
+                                                            <form>
+                                                                <div class="form-row" ng-include="slid.htmlsrc">
+                                                                    <div class="col-md-12 mb-3">
+                                                                        <label for="validationServer01">First name</label>
+                                                                        <input type="number" class="form-control is-valid" id="validationServer01" value="Mark" required>
+                                                                        <div class="valid-feedback">
+                                                                            Looks good!
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="btn btn-primary" type="submit">Next</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Understood</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="onboarding-modal modal fade animated" id="onboardingWideFormModalColor" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog modal-centered" role="document">
+                                            <div class="modal-content text-center">
+                                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">أغلاق</span><span class="os-icon os-icon-close"></span></button>
+                                                <div class="onboarding-media">
+                                                    <img alt="" src="img/bigicon2.png" width="200px">
+                                                </div>
+                                                <div class="onboarding-content with-gradient">
+                                                    <h4 class="onboarding-title">أضافه لون</h4>
+                                                    <div class="onboarding-text"> ... </div>
+                                                    <div class="row align-items-center justify-content-center">
+                                                        <div class="col-sm-auto P-Sizes" ng-repeat="color in Enttiy.productColors | filter:{isActive: false}" ng-click="ActiveColor(color)">
+                                                            <div class="color-selector" ng-style="{'background-color': color.color}"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="onboarding-modal modal fade animated" id="onboardingWideFormModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog modal-centered" role="document">
+                                            <div class="modal-content text-center">
+                                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">أغلاق</span><span class="os-icon os-icon-close"></span></button>
+                                                <div class="onboarding-media">
+                                                    <img alt="" src="img/bigicon2.png" width="200px">
+                                                </div>
+                                                <div class="onboarding-content with-gradient">
+                                                    <h4 class="onboarding-title">أضافه مقاس</h4>
+                                                    <div class="onboarding-text"><div class="color-selector" ng-style="{'background-color': SelectColor.color}"></div></div>
+                                                    <div class="row align-items-center justify-content-center">
+                                                        <div class="col-sm-auto P-Sizes" ng-repeat="size in SelectColor.productColorSizes | filter:{isActive:false}">
+                                                            <div class="P-Sizes-Label">{{size.size}}</div>
+                                                            <div class="row align-items-center justify-content-center">
+                                                                <div class="P-Sizes">
+                                                                    <div class="row AddCard" ng-click="ActiveSize(size)">
+                                                                        <i class="os-icon os-icon-plus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="exampleModal22122" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">أنشاء الأستايل جديد</h5>
+                                                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> ×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="SuppliersformValidate">
+                                                        <div class="form-group">
+                                                            <label for="" class="float-right">أسم الأستايل</label>
+                                                            <input class="form-control" placeholder="أسم الأستايل" name="Name" ng-model="UniqItemName.Title">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-primary" type="button" ng-click="CreateUniqItemName(UniqItemName)">تأكيد</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="exampleModal221" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">أنشاء الخام جديد</h5>
+                                                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> ×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="SuppliersformValidate">
+                                                        <div class="form-group">
+                                                            <label for="" class="float-right">أسم الخام</label>
+                                                            <input class="form-control" placeholder="أسم الخام" name="Name" ng-model="newMaterial.Name">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-primary" type="button" ng-click="CreateNewMaterial(newMaterial)">تأكيد</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="exampleModal1001" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">أنشاء مصروفات جديد</h5>
+                                                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> ×</span></button>
+                                                </div>
+                                                <div class="form-desc modal-body" ng-show="IslengthAllType">
+                                                    يجب أضافه أنوع المصروفات أولاً
+                                                </div>
+                                                <div class="modal-body" ng-hide="IslengthAllType">
+                                                    <form id="OutcomeformValidate">
+                                                        <div class="form-group">
+                                                            <label for="" class="float-right">العنوان</label>
+                                                            <input class="form-control" placeholder="العنوان" type="text" name="Type" ng-model="EnttiyOutcome.Title">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="" class="float-right">نوع المصروفات</label>
+                                                            <select class="form-control" ng-model="EnttiyOutcome.OutComeTypeId">
+                                                                <option ng-repeat="Type in AllOutType" ng-value="{{Type.id}}">{{Type.title}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="" class="float-right">التكلفه</label>
+                                                            <input class="form-control" placeholder="التكلفه" type="number" required="required" name="Cost" ng-model="EnttiyOutcome.Price">
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-primary" type="button" ng-click="CreateOutcome()">تأكيد</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="exampleModal1" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">أنشاء مورد جديد</h5>
+                                                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> ×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="SuppliersformValidate">
+                                                        <div class="form-group">
+                                                            <label for="" class="float-right">أسم المورد</label>
+                                                            <input class="form-control" placeholder="أسم المورد" name="Name" ng-model="Enttiy.Name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="" class="float-right">رقم الهاتف</label>
+                                                            <input class="form-control" type="text" placeholder="رقم الهاتف" name="Phone" ng-model="Enttiy.Phone">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-primary" type="button" ng-click="CreateSuppliers()">تأكيد</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="onboarding-modal modal fade animated" id="onboardingTextModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog modal-centered" role="document">
+                                            <div class="modal-content text-center">
+                                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">أغلاق</span><span class="os-icon os-icon-close"></span></button>
+                                                <div class="onboarding-media">
+                                                    <img alt="" src="img/bigicon2.png" width="200px">
+                                                </div>
+                                                <div class="onboarding-content with-gradient">
+                                                    <h4 class="onboarding-title">{{FullPackage.Pac.name}}</h4>
+                                                    <div class="onboarding-text">  {{FullPackage.Pac.createdAt | date : 'M/d/yy h:mm:ss a'}} </div>
+                                                    <div class="row">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-lightborder">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>أسم المنتج</th>
+                                                                        <th class="text-center">عدد القطع</th>
+                                                                        <th class="text-center">سعر القطعه</th>
+                                                                        <th class="text-center">السعر الكلي</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr ng-repeat=" item in FullPackage.itemPack">
+                                                                        <td>{{item.name}}</td>
+                                                                        <td class="text-center">
+                                                                            <div>{{item.quantity}}</div>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <div>{{item.price}}</div>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <div>{{item.totalPrice}}</div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div aria-hidden="true" class="onboarding-modal modal fade animated" id="onboardingWideFormModalPOS" role="dialog" tabindex="-1" style="direction: ltr;">
+                                        <div class="modal-dialog modal-lg modal-centered" role="document">
+                                            <div class="modal-content text-center">
+                                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="os-icon os-icon-close"></span><span class="close-label">أغلاق</span></button>
+                                                <div class="onboarding-side-by-side" ng-hide="isEmpty">
+                                                    <div class="onboarding-content with-gradient">
+                                                        <h4 class="onboarding-title">{{Enttiy.Name}}</h4>
+                                                        <div class="onboarding-text">أختر اللون.</div>
+                                                        <div class="row align-items-center justify-content-center">
+                                                            <div class="col-sm-1 Basics" ng-repeat="s in Enttiy.Data | filter : {isEmpty: false }">
+                                                                <div class="B-selector color-selector" ng-click="SetCartItem(Enttiy.Data, s.colorIndex)" ng-style="{'background-color': s.color}" ng-class="{'selected' : s.isSelected}"></div>
+                                                            </div>
+                                                        </div>
+                                                        <hr />
+                                                        <div class="onboarding-text">أختر المقاس.</div>
+                                                        <div class="row align-items-center justify-content-center">
+                                                            <div class="col-sm-1 Basics" ng-repeat="s in Enttiy.Data[Enttiy.Colorindex].availableSizes | filter : {isEmpty: false }">
+                                                                <div class="B-selector text-selector" ng-click="SetCartItem(Enttiy.Data,Enttiy.Data[Enttiy.Colorindex].colorIndex , s.sizeIndex)" ng-class="{'selected' : s.isSelected}">{{s.size}}</div>
+                                                            </div>
+                                                        </div>
+                                                        <hr />
+                                                        <div class="row justify-content-center p-2 mt-2">
+                                                            <div class="form-group NumberOfPieces w-100">
+                                                                <label for=""> عدد القطع </label>
+                                                                <div class="row m-3 align-items-center justify-content-center">
+                                                                    <div class="Icon-Dy" ng-click="minus()">
+                                                                        <i class="os-icon os-icon-ui-23"></i>
+                                                                    </div>
+                                                                    <div class="m-auto">
+                                                                        {{Enttiy.NumberOfPieces}}
+                                                                    </div>
+                                                                    <div class="Icon-Dy" ng-click="Plus()">
+                                                                        <i class="os-icon os-icon-ui-22"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-buttons-w">
+                                                            <button class="btn btn-primary" data-dismiss="modal" type="submit" ng-click="AddMeToChart()">تأكيد</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="onboarding-side-by-side" ng-show="isEmpty">
+                                                    <div class="onboarding-content with-gradient">
+                                                        <h4 class="onboarding-title">فارغ</h4>
+                                                        <div class="onboarding-text"> لا يوجد من هذا المنتج بعد الأن</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- End Modals-->
+
+                                    <div class="row">
+                                        <div class="os-tabs-w">
+                                            <!--<div class="os-tabs-controls os-tabs-complex" ng-hide="Bar.sections.length <= 1">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="nav-item" ng-repeat="s in Bar.sections">
+                                                        <a aria-expanded="false" class="nav-link" ng-click="SetActiveSection(s)"><span class="tab-label">{{s.titel}}</span></a>
+                                                    </li>
+                                                    <li class="nav-item nav-actions d-none d-sm-block">
+                        <a class="btn btn-grey" href="#"><i class="os-icon os-icon-plus-circle"></i><span>Add Wallet</span></a>
+                    </li>
+                                                </ul>
+                                            </div>-->
+                                            <div class="tab-content" ng-style="{'height' : Bar.sections.length <= 1 ? '100%' : '95%' +''}">
+                                                <div class="blurloading" ng-show="isLoading">
+                                                    <div class="loading-position">
+                                                        <div class="loadingio-spinner-eclipse-mb4idrvfvxg">
+                                                            <div class="ldio-y84jh2q843">
+                                                                <div></div>
+                                                                <img src="img/logo2.png" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div ng-view class="BoxView w-100 h-100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

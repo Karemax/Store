@@ -1,0 +1,45 @@
+﻿<div data-select2-id="18" ng-show="Islength">
+    <div class="rentals-list-w" data-select2-id="17">
+        <div class="rentals-list" data-select2-id="16">
+            <!--<div class="list-controls">
+                <div class="list-order">
+                    المنتجات
+                </div>
+                <div class="list-info">
+                    <input class="form-control" placeholder="أدخل اسم او كود المنتج" type="search" ng-model="query">
+                </div>
+            </div>-->
+            <div class="property-items as-grid">
+                <div class="property-item" ng-repeat="Product in All | filter:query">
+                    <a class="item-media-w" data-target="#onboardingWideFormModalPOS" data-toggle="modal" ng-click="SelectItemDetails(Product)">
+                        <div class="item-media" style="background-image: url({{Imgpath}}/{{Product.photo}})"></div>
+                    </a>
+                    <div class="item-info">
+                        <div class="item-features">
+                            <div class="feature">{{Product.type}}</div>
+                            <div class="feature">{{Product.gender}}</div>
+                        </div>
+                        <div class="item-price-buttons">
+                            <div>
+                                <h3 class="item-title">
+                                    <a href="">{{Product.name}}</a>
+                                </h3>
+                                <div class="item-price">
+                                    <strong ng-if="Product.salePrice > 0">{{Product.salePrice}} - </strong>
+                                    <strong ng-class="{'price-out-sale' : Product.salePrice > 0}">{{Product.price}}</strong>
+                                    <span>/جنيه مصري</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="item-reviews">
+                            <div class="reviews-count">{{Product.description}}</div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-desc" ng-show="!Islength">
+    يجب أولا  <span class="Click-link" ng-click="Setbar(SiteMapSrc[3])"> أضافه منتاجات </span> حتي تتمكن من تشغيل نقطه البيع
+</div>

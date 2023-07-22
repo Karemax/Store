@@ -1,0 +1,114 @@
+﻿
+
+<form id="ProductNamesformValidate">
+    <div ng-repeat="item in BaseProductNames | filter: query">
+        <legend><span> {{$index+1}}</span></legend>
+        <div class="row m-3">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">الأصناف</label>
+                    <select class="form-control" ng-model="item.productTypeId" ng-change="item.isEdit = true">
+                        <option ng-repeat="Type in AllBasics.productTypes" ng-value="Type.id" ng-click="ChaneType(item,Type.id)">{{Type.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">الأستايل</label>
+                    <select class="form-control" ng-model="item.uniqItemNameId" ng-change="item.isEdit = true">
+                        <option ng-repeat="UniqItemName in AllBasics.uniqItemName" ng-value="{{UniqItemName.id}}">{{UniqItemName.title}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">أستايل الكم</label>
+                    <select class="form-control" ng-model="item.sleeveStyleId" ng-change="item.isEdit = true">
+                        <option value="0">غير معروف</option>
+                        <option ng-repeat="S in AllBasics.sleeveStyles" ng-value="{{S.id}}">{{S.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">الخامه</label>
+                    <select class="form-control" ng-model="item.materialId" ng-change="item.isEdit = true">
+                        <option value="0">غير معروف</option>
+                        <option ng-repeat="M in AllBasics.materials" ng-value="{{M.id}}">{{M.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">الانواع</label>
+                    <select class="form-control" ng-model="item.genderId" ng-change="item.isEdit = true">
+                        <option ng-repeat="gender in AllBasics.genders" ng-value="{{gender.id}}">{{gender.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <a class="mr-2 mb-2 btn btn-outline-danger" type="button" href="" ng-click="RemoveItem()">
+                        <i class="os-icon os-icon-x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form id="ProductNamesformValidate">
+    <div ng-repeat="item in AllProductNames">
+        <legend><span> {{$index+1}}</span></legend>
+        <div class="row m-3">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">الأصناف</label>
+                    <select class="form-control" ng-model="item.productTypeId">
+                        <option ng-repeat="Type in AllBasics.productTypes" ng-value="Type.id">{{Type.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">الأستايل</label>
+                    <select class="form-control" ng-model="item.uniqItemNameId">
+                        <option ng-repeat="UniqItemName in AllBasics.uniqItemName" ng-value="{{UniqItemName.id}}">{{UniqItemName.title}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">أستايل الكم</label>
+                    <select class="form-control" ng-model="item.sleeveStyleId">
+                        <option ng-value="0">غير معروف</option>
+                        <option ng-repeat="S in AllBasics.sleeveStyles" ng-value="{{S.id}}">{{S.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">الخامه</label>
+                    <select class="form-control" ng-model="item.materialId">
+                        <option ng-value="0">غير معروف</option>
+                        <option ng-repeat="M in AllBasics.materials" ng-value="{{M.id}}">{{M.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="">الانواع</label>
+                    <select class="form-control" ng-model="item.genderId">
+                        <option ng-repeat="gender in AllBasics.genders" ng-value="{{gender.id}}">{{gender.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <a class="mr-2 mb-2 btn btn-outline-danger" type="button" href="" ng-click="RemoveNewCart(item)">
+                        <i class="os-icon os-icon-minus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

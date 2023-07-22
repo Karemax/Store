@@ -1,0 +1,21 @@
+﻿<div class="table-responsive">
+    <table class="table table-lightborder">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>النوع</th>
+                <th>شهري</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="ty in All">
+                <td>{{$index+1}}</td>
+                <td>{{ty.title}}</td>
+                <td>
+                    <div ng-show="ty.isMonthly" class="status-pill green" data-title="شهري" data-toggle="tooltip" data-original-title="" title=""></div>
+                    <div ng-show="!ty.isMonthly" class="status-pill red" data-title="ليس شهري" data-toggle="tooltip" data-original-title="" title=""></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

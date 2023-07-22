@@ -1,0 +1,291 @@
+﻿    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="UniqItemNameModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">أنشاء أستايل جديد</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> ×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" required placeholder="أسم أستايل" name="name" ng-model="UniqItemName">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-click="AddUniqItemName(UniqItemName)">تأكيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="MaterialModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">أنشاء خام جديد</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> ×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" required placeholder="أسم الخام" name="name" ng-model="Material">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-click="AddMaterial(Material)">تأكيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="ColorModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">أنشاء لون جديد</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> ×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" required placeholder="أسم اللون" name="name" ng-model="Color.name">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="color" required name="color" ng-model="Color.code">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-click="AddColor(Color)">تأكيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="SizeModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">أنشاء مقاس جديد</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" required placeholder="أسم المقاس" name="name" ng-model="size">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-click="AddSize(size)">تأكيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="GenderModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">أنشاء نوع جديد</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" required placeholder="أسم النوع" name="name" ng-model="gender">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-click="AddGender(gender)">تأكيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="SleeveStyleModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">أنشاء نمط الأكمام جديد</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" required placeholder="أسم النمط" name="name" ng-model="SleeveStyle">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-click="AddSleeveStyle(SleeveStyle)">تأكيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade animated" aria-labelledby="exampleModalLabel" id="TypeModal" role="dialog" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">أنشاء صنف جديد</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" required placeholder="أسم الصنف" name="name" ng-model="type">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit" ng-click="AddType(type)">تأكيد</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="content-i" ng-controller="SuperBasic">
+    <div class="content-box">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="element-wrapper">
+                    <div class="element-actions">
+                        <a class="mr-2 mb-2 btn btn-outline-primary" data-placement="right" data-toggle="tooltip" data-original-title="حفظ التغيرات" type="button" href="" ng-click="Send()">
+                            <i class="os-icon os-icon-save"></i>
+                        </a>
+                    </div>
+                    <h6 class="element-header">أساسيات</h6>
+                    <div class="element-box">
+                        <div class="projects-list">
+                            <div class="project-box">
+                                <div class="project-head">
+                                    <div class="project-title">
+                                        <h5>الألوان</h5>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col-sm-1 Basics">
+                                            <div class="el-tablo highlight">
+                                                <div class="label">أضافه لون</div>
+                                                <div class="value PlusV" data-toggle="modal" data-target="#ColorModal">
+                                                    <i class="os-icon os-icon-ui-22"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1 Basics" ng-repeat="color in AllBasics.colors">
+                                            <div class="el-tablo highlight">
+                                                <div class="label">{{color.name}}</div><div class="value">
+                                                    <div class="B-selector color-selector" ng-click="isActive(color)" ng-style="{'background-color': color.code}" ng-class="{'selected' : color.isActive}"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-head">
+                                    <div class="project-title">
+                                        <h5>المقاسات</h5>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col-sm-1 Basics" data-toggle="modal" data-target="#SizeModal">
+                                            <div class="B-selector text-selector selected">أضافه مقاس</div>
+                                        </div>
+                                        <div class="col-sm-1 Basics" ng-repeat="size in AllBasics.sizes">
+                                            <div class="B-selector text-selector" ng-click="isActive(size)" ng-class="{'selected' : size.isActive}">{{size.name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-head">
+                                    <div class="project-title">
+                                        <h5>الانواع</h5>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col-sm-1 Basics" data-toggle="modal" data-target="#GenderModal">
+                                            <div class="B-selector text-selector selected">أضافه نوع</div>
+                                        </div>
+                                        <div class="col-sm-1 Basics" ng-repeat="gender in AllBasics.genders">
+                                            <div class="B-selector text-selector" ng-click="isActive(gender)" ng-class="{'selected' : gender.isActive}">{{gender.name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-head">
+                                    <div class="project-title">
+                                        <h5>الأصناف</h5>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col-sm-1 Basics" data-toggle="modal" data-target="#TypeModal">
+                                            <div class="B-selector text-selector selected">أضافه صنف</div>
+                                        </div>
+                                        <div class="col-sm-1 Basics" ng-repeat="Type in AllBasics.productTypes">
+                                            <div class="B-selector text-selector" ng-click="isActive(Type)" ng-class="{'selected' : Type.isActive}">{{Type.name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-head">
+                                    <div class="project-title">
+                                        <h5>نمط الأكمام</h5>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col-sm-1 Basics" data-toggle="modal" data-target="#SleeveStyleModal">
+                                            <div class="B-selector text-selector selected">أضافه نمط الأكمام</div>
+                                        </div>
+                                        <div class="col-sm-1 Basics" ng-repeat="SleeveStyle in AllBasics.sleeveStyles">
+                                            <div class="B-selector text-selector" ng-click="isActive(SleeveStyle)" ng-class="{'selected' : SleeveStyle.isActive}">{{SleeveStyle.name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-head">
+                                    <div class="project-title">
+                                        <h5>الخامات</h5>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col-sm-1 Basics" data-toggle="modal" data-target="#MaterialModal">
+                                            <div class="B-selector text-selector selected">أضافه الخام</div>
+                                        </div>
+                                        <div class="col-sm-1 Basics" ng-repeat="Material in AllBasics.materials">
+                                            <div class="B-selector text-selector" ng-click="isActive(Material)" ng-class="{'selected' : Material.isActive}">{{Material.name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-box">
+                                <div class="project-head">
+                                    <div class="project-title">
+                                        <h5>الأستايل</h5>
+                                    </div>
+                                </div>
+                                <div class="project-info">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col-sm-1 Basics" data-toggle="modal" data-target="#UniqItemNameModal">
+                                            <div class="B-selector text-selector selected">أضافه الأستايل</div>
+                                        </div>
+                                        <div class="col-sm-1 Basics" ng-repeat="UniqItemName in AllBasics.uniqItemNames">
+                                            <div class="B-selector text-selector" ng-click="isActive(UniqItemName)" ng-class="{'selected' : UniqItemName.isActive}">{{UniqItemName.title}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
